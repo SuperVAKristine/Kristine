@@ -481,7 +481,134 @@
     color: rgba(255,255,255,0.4); letter-spacing: 0.05em;
   }
 
-  /* ANIMATIONS */
+  /* ── AR/AP SECTION ── */
+  #arap {
+    background: var(--white);
+    padding: 8rem 6rem;
+  }
+  .arap-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .arap-visual {
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+    border-radius: 8px; padding: 3rem;
+    color: white; position: relative; overflow: hidden;
+  }
+  .arap-visual::before {
+    content: '💰'; position: absolute;
+    font-size: 8rem; right: -1rem; bottom: -1rem;
+    opacity: 0.08; line-height: 1;
+  }
+  .arap-visual-tag {
+    display: inline-block; background: var(--gold);
+    color: white; font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 0.3rem 0.9rem; border-radius: 2px; margin-bottom: 1.5rem;
+  }
+  .arap-visual h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.8rem; color: white; margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+  .arap-visual-items { list-style: none; }
+  .arap-visual-items li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.88rem; font-weight: 300;
+    color: rgba(255,255,255,0.85);
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .arap-visual-items li::before {
+    content: '◆'; color: var(--gold-light); font-size: 0.4rem; flex-shrink: 0;
+  }
+  .arap-content .section-label { margin-bottom: 0.8rem; }
+  .arap-content p {
+    font-size: 0.95rem; font-weight: 300;
+    color: var(--text-mid); line-height: 1.9; margin-bottom: 1rem;
+  }
+  .arap-stats {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2rem;
+  }
+  .arap-stat {
+    background: var(--beige); padding: 1.2rem;
+    border-radius: 4px; border-left: 3px solid var(--gold);
+  }
+  .arap-stat-num {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.6rem; color: var(--purple); font-weight: 700;
+  }
+  .arap-stat-label {
+    font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.08em; color: var(--text-light);
+    text-transform: uppercase; margin-top: 0.2rem;
+  }
+
+  /* ── CERTIFICATES SECTION ── */
+  #certificates {
+    background: var(--beige);
+    padding: 8rem 6rem;
+  }
+  .cert-header { text-align: center; margin-bottom: 3.5rem; }
+  .cert-header .section-label { justify-content: center; }
+  .cert-header .section-label::before { display: none; }
+  .cert-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+  }
+  .cert-card {
+    background: var(--white);
+    border-radius: 4px; overflow: hidden;
+    border: 1px solid rgba(91,59,140,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(91,59,140,0.15);
+  }
+  .cert-thumb {
+    height: 160px;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+  .cert-thumb::before {
+    content: '🎓'; font-size: 4rem;
+  }
+  .cert-thumb-ribbon {
+    position: absolute; top: 1rem; right: -0.5rem;
+    background: var(--gold); color: white;
+    font-size: 0.55rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.25rem 0.8rem; border-radius: 2px 0 0 2px;
+  }
+  .cert-info { padding: 1.2rem 1.5rem 1.5rem; }
+  .cert-title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.95rem; color: var(--text-dark);
+    margin-bottom: 0.4rem; line-height: 1.3;
+  }
+  .cert-issuer {
+    font-size: 0.72rem; font-weight: 600;
+    color: var(--text-light); letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .cert-view {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    margin-top: 0.8rem; font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--purple);
+  }
+  .cert-view::after { content: '→'; }
+
+  @media (max-width: 900px) {
+    #arap { padding: 5rem 2rem; }
+    .arap-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+    #certificates { padding: 5rem 2rem; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .arap-stats { grid-template-columns: 1fr 1fr; }
+  }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
@@ -517,8 +644,11 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#arap">AR/AP</a></li>
     <li><a href="#experience">Experience</a></li>
+    <li><a href="#certificates">Certificates</a></li>
     <li><a href="#tools">Tools</a></li>
+    <li><a href="https://www.linkedin.com/in/kristine-carla-lomogbad-021673234/" target="_blank" style="color:var(--gold)">LinkedIn ↗</a></li>
     <li><a href="#cta">Contact</a></li>
   </ul>
 </nav>
@@ -529,10 +659,9 @@
   <div class="hero-inner">
     <div class="hero-text">
       <p class="hero-eyebrow fade-in">Available for Hire</p>
-      <h1 class="hero-title fade-in delay-1">
-        Operations &amp; <em>Executive Support</em> Specialist
-      </h1>
-      <p class="hero-subtitle fade-in delay-2">Now supporting businesses as an AR/AP Specialist</p>
+      <h1 class="hero-title fade-in delay-1">Kristine Carla<br><em>Lomogbad</em></h1>
+      <p class="hero-subtitle fade-in delay-2">Operations &amp; Executive Support Specialist</p>
+      <p class="hero-subtitle fade-in delay-2" style="color:var(--gold);font-size:0.8rem;margin-top:-0.5rem;">Bridging Operations &amp; Finance as an AR/AP Specialist</p>
       <p class="hero-desc fade-in delay-2">
         I help founders and teams stay organized, execute faster, and keep operations and finances running smoothly.
       </p>
@@ -615,6 +744,46 @@
   </div>
 </section>
 
+<!-- SECTION: AR/AP DEDICATED -->
+<section id="arap">
+  <div class="arap-inner">
+    <div class="arap-visual">
+      <span class="arap-visual-tag">⭐ Specialist Focus</span>
+      <h3>Finance Support<br>(AR/AP)</h3>
+      <ul class="arap-visual-items">
+        <li>Accounts Receivable — invoice tracking, follow-ups</li>
+        <li>Accounts Payable — bill processing, payments</li>
+        <li>Reconciliation support</li>
+        <li>Payroll coordination</li>
+      </ul>
+    </div>
+    <div class="arap-content">
+      <p class="section-label">Finance Specialty</p>
+      <h2 class="section-title">Accounts Receivable &amp; <em style="font-style:italic;color:var(--purple)">Payable</em></h2>
+      <p>With hands-on experience in both AR and AP, I help businesses maintain healthy cash flow, stay on top of outstanding invoices, and ensure payments are processed accurately and on time.</p>
+      <p>I bring structure and attention to detail to every financial task — so you can focus on growing your business while I keep the numbers clean.</p>
+      <div class="arap-stats">
+        <div class="arap-stat">
+          <div class="arap-stat-num">500+</div>
+          <div class="arap-stat-label">Employees Payrolled</div>
+        </div>
+        <div class="arap-stat">
+          <div class="arap-stat-num">AR/AP</div>
+          <div class="arap-stat-label">Full Cycle Support</div>
+        </div>
+        <div class="arap-stat">
+          <div class="arap-stat-num">3+</div>
+          <div class="arap-stat-label">Years Experience</div>
+        </div>
+        <div class="arap-stat">
+          <div class="arap-stat-num">100%</div>
+          <div class="arap-stat-label">Accuracy Focused</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- SECTION 4: EXPERIENCE -->
 <section id="experience">
   <div class="experience-inner">
@@ -654,6 +823,46 @@
         </ul>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- SECTION: CERTIFICATES -->
+<section id="certificates">
+  <div class="cert-header">
+    <p class="section-label">Credentials</p>
+    <h2 class="section-title">Certificates & Training</h2>
+  </div>
+  <div class="cert-grid">
+    <a class="cert-card" href="https://drive.google.com/file/d/1CqOe65l4JEtc-pwHc3mzGChWPen6VrtV/view?usp=sharing" target="_blank">
+      <div class="cert-thumb">
+        <span class="cert-thumb-ribbon">Certified</span>
+      </div>
+      <div class="cert-info">
+        <p class="cert-title">Quickbooks Online Certified ProAdvisor</p>
+        <p class="cert-issuer">View on Google Drive</p>
+        <span class="cert-view">View Certificate</span>
+      </div>
+    </a>
+    <a class="cert-card" href="https://drive.google.com/file/d/1IX2_g8H_VaX9CCgmQzNd72PMYFdP-pHD/view" target="_blank">
+      <div class="cert-thumb">
+        <span class="cert-thumb-ribbon">Certified</span>
+      </div>
+      <div class="cert-info">
+        <p class="cert-title">People Ops Certified</p>
+        <p class="cert-issuer">View on Google Drive</p>
+        <span class="cert-view">View Certificate</span>
+      </div>
+    </a>
+    <a class="cert-card" href="https://drive.google.com/drive/u/0/folders/1T5rpqnqPiikXlC5M7QcMMC8m9l0sAEEX" target="_blank">
+      <div class="cert-thumb">
+        <span class="cert-thumb-ribbon">Certified</span>
+      </div>
+      <div class="cert-info">
+        <p class="cert-title">HR Minor Certified</p>
+        <p class="cert-issuer">View on Google Drive</p>
+        <span class="cert-view">View Certificate</span>
+      </div>
+    </a>
   </div>
 </section>
 
@@ -744,6 +953,10 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-name">Kristine Carla Lomogbad</div>
+  <div style="display:flex;gap:1.5rem;align-items:center;">
+    <a href="https://www.linkedin.com/in/kristine-carla-lomogbad-021673234/" target="_blank" style="color:var(--gold);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;">LinkedIn ↗</a>
+    <a href="https://wa.me/639956509379" target="_blank" style="color:rgba(255,255,255,0.5);font-size:0.75rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;">WhatsApp ↗</a>
+  </div>
   <div class="footer-copy">© 2026 · Operations & Executive Support Specialist</div>
 </footer>
 
